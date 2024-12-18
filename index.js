@@ -143,10 +143,17 @@ const genIndexHtml = async (catalog) => {
 };
 
 const fire = async () => {
-  console.log();
-  console.log(
-    "请事先将页面 cookie 中的 thor 值拷贝到 index.js 中的 thor 变量里!"
-  );
+  // console.log();
+  // console.log(
+  //   "请事先将页面 cookie 中的 thor 值拷贝到 index.js 中的 thor 变量里!"
+  // );
+
+  // prompt to ask for `thor` cookie value
+  const thorAnswer = await inquirer.prompt([
+    { name: "thor", type: "input", message: "请输入 thor 值: " },
+  ]);
+  thor = thorAnswer.thor;
+
   console.log();
   const answers = await inquirer.prompt([
     { name: "step1", type: "input", message: "请输入 bookId: " },
